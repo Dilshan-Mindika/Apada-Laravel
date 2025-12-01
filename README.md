@@ -46,7 +46,7 @@ A comprehensive, localized, and mobile-responsive web application built with Lar
 
 1.  **Clone the repository**:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/Dilshan-Mindika/Apada-Laravel
     cd Apada-Laravel
     ```
 
