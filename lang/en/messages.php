@@ -48,4 +48,9 @@ return [
     'delivering' => 'Delivering',
     'mark_delivering' => 'Mark as Delivering',
     'success_delivering' => 'Request marked as delivering!',
+    'emergency_hotlines' => 'Emergency Hotlines',
+    'emergency_desc' => 'The government has introduced hotlines for reporting emergency disaster situations in the Colombo District due to adverse weather.',
+    'hotline_24h' => '24-hour Emergency Hotline',
+    'hotline_colombo' => 'Colombo District Disaster Management',
+    'hotline_dmc' => 'Disaster Management Coordinating Unit',
 ];
