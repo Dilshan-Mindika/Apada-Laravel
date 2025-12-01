@@ -33,8 +33,15 @@ const switchLang = (lang) => {
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <select :value="locale" @change="switchLang($event.target.value)" class="form-select block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                         <option value="en">English</option>
-                        <option value="si">Sinhala</option>
-                        <option value="ta">Tamil</option>
+                        <option value="si">සිංහල</option>
+                        <option value="ta">தமிழ்</option>
+                    </select>
+                </div>
+                <div class="flex items-center sm:hidden mr-2">
+                    <select :value="locale" @change="switchLang($event.target.value)" class="form-select block w-full pl-2 pr-8 py-1 text-sm border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-md">
+                        <option value="en">English</option>
+                        <option value="si">සිංහල</option>
+                        <option value="ta">தமிழ்</option>
                     </select>
                 </div>
                 <div class="-mr-2 flex items-center sm:hidden">
@@ -56,15 +63,6 @@ const switchLang = (lang) => {
                 <Link :href="route('donor.index')" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium" :class="route().current('donor.index') ? 'border-blue-500 text-blue-700 bg-blue-50' : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300'">
                     {{ trans.donor_portal }}
                 </Link>
-            </div>
-            <div class="pt-4 pb-4 border-t border-gray-200">
-                <div class="px-4">
-                    <select :value="locale" @change="switchLang($event.target.value)" class="form-select block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
-                        <option value="en">English</option>
-                        <option value="si">Sinhala</option>
-                        <option value="ta">Tamil</option>
-                    </select>
-                </div>
             </div>
         </div>
     </nav>
