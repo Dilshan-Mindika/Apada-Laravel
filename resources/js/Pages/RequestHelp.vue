@@ -70,6 +70,9 @@ const submit = () => {
                                         <option value="Food">{{ trans.food }}</option>
                                         <option value="Water">{{ trans.water }}</option>
                                         <option value="Medicine">{{ trans.medicine }}</option>
+                                        <option value="Clothes">{{ trans.clothes }}</option>
+                                        <option value="Transport">{{ trans.transport }}</option>
+                                        <option value="Sanitary">{{ trans.sanitary }}</option>
                                         <option value="Other">{{ trans.other }}</option>
                                     </select>
                                     <div v-if="form.errors.category" class="text-red-500 text-sm mt-1">{{ form.errors.category }}</div>

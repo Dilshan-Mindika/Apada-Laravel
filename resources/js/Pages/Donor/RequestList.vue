@@ -66,6 +66,9 @@ const complete = (id) => {
                                     <option value="Food">{{ trans.food }}</option>
                                     <option value="Water">{{ trans.water }}</option>
                                     <option value="Medicine">{{ trans.medicine }}</option>
+                                    <option value="Clothes">{{ trans.clothes }}</option>
+                                    <option value="Transport">{{ trans.transport }}</option>
+                                    <option value="Sanitary">{{ trans.sanitary }}</option>
                                     <option value="Other">{{ trans.other }}</option>
                                 </select>
                                 <input v-model="search" type="text" :placeholder="trans.search" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto">
