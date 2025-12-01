@@ -25,25 +25,25 @@ const submit = () => {
                         <form @submit.prevent="submit">
                             <div class="mb-4">
                                 <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
-                                <input v-model="form.name" type="text" id="name" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+                                <input v-model="form.name" type="text" id="name" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white py-3 placeholder-gray-500 dark:placeholder-gray-400" required>
                                 <div v-if="form.errors.name" class="text-red-500 text-sm mt-1">{{ form.errors.name }}</div>
                             </div>
 
                             <div class="mb-4">
                                 <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
-                                <input v-model="form.email" type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+                                <input v-model="form.email" type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white py-3 placeholder-gray-500 dark:placeholder-gray-400" required>
                                 <div v-if="form.errors.email" class="text-red-500 text-sm mt-1">{{ form.errors.email }}</div>
                             </div>
 
                             <div class="mb-4">
                                 <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
-                                <input v-model="form.password" type="password" id="password" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+                                <input v-model="form.password" type="password" id="password" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white py-3 placeholder-gray-500 dark:placeholder-gray-400" required>
                                 <div v-if="form.errors.password" class="text-red-500 text-sm mt-1">{{ form.errors.password }}</div>
                             </div>
 
                             <div class="mb-6">
                                 <label for="password_confirmation" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Confirm Password</label>
-                                <input v-model="form.password_confirmation" type="password" id="password_confirmation" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required>
+                                <input v-model="form.password_confirmation" type="password" id="password_confirmation" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white py-3 placeholder-gray-500 dark:placeholder-gray-400" required>
                             </div>
 
                             <div class="flex items-center justify-end">

@@ -59,9 +59,9 @@ const complete = (id) => {
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                         <div class="flex flex-col md:flex-row justify-between mb-6 gap-4">
-                            <h2 class="text-2xl font-bold">{{ trans.donor_portal }}</h2>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{{ trans.donor_portal }}</h2>
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <select v-model="category" class="rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                                <select v-model="category" class="rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto bg-white dark:bg-gray-700 text-gray-900 dark:text-white py-3">
                                     <option value="All">{{ trans.all }}</option>
                                     <option value="Food">{{ trans.food }}</option>
                                     <option value="Water">{{ trans.water }}</option>
@@ -71,12 +71,12 @@ const complete = (id) => {
                                     <option value="Sanitary">{{ trans.sanitary }}</option>
                                     <option value="Other">{{ trans.other }}</option>
                                 </select>
-                                <input v-model="search" type="text" :placeholder="trans.search" class="rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                                <input v-model="search" type="text" :placeholder="trans.search" class="rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto bg-white dark:bg-gray-700 text-gray-900 dark:text-white py-3 placeholder-gray-500 dark:placeholder-gray-400">
                             </div>
                         </div>
 
                         <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-gray-200">
+                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead class="bg-gray-50 dark:bg-gray-700">
                                     <tr>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{{ trans.name }}</th>

@@ -38,7 +38,7 @@ const submit = () => {
                                 <!-- Name -->
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700">{{ trans.name }}</label>
-                                    <input v-model="form.name" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    <input v-model="form.name" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-3 placeholder-gray-500 dark:placeholder-gray-400">
                                     <div v-if="form.errors.name" class="text-red-500 text-sm mt-1">{{ form.errors.name }}</div>
                                 </div>
 
@@ -46,14 +46,14 @@ const submit = () => {
                                     <!-- Age -->
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700">{{ trans.age }}</label>
-                                        <input v-model="form.age" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                        <input v-model="form.age" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-3 placeholder-gray-500 dark:placeholder-gray-400">
                                         <div v-if="form.errors.age" class="text-red-500 text-sm mt-1">{{ form.errors.age }}</div>
                                     </div>
 
                                     <!-- Gender -->
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700">{{ trans.gender }}</label>
-                                        <select v-model="form.gender" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                        <select v-model="form.gender" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-3">
                                             <option value="">Select</option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
@@ -66,14 +66,14 @@ const submit = () => {
                                 <!-- Last Seen -->
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700">{{ trans.last_seen }}</label>
-                                    <textarea v-model="form.last_seen_location" rows="2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                                    <textarea v-model="form.last_seen_location" rows="2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-3 placeholder-gray-500 dark:placeholder-gray-400"></textarea>
                                     <div v-if="form.errors.last_seen_location" class="text-red-500 text-sm mt-1">{{ form.errors.last_seen_location }}</div>
                                 </div>
 
                                 <!-- Description -->
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700">{{ trans.description }}</label>
-                                    <textarea v-model="form.description" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                                    <textarea v-model="form.description" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-3 placeholder-gray-500 dark:placeholder-gray-400"></textarea>
                                 </div>
 
                                 <!-- Image Upload -->
@@ -88,17 +88,17 @@ const submit = () => {
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700">{{ trans.contact_name }}</label>
-                                            <input v-model="form.contact_name" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                            <input v-model="form.contact_name" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-3 placeholder-gray-500 dark:placeholder-gray-400">
                                             <div v-if="form.errors.contact_name" class="text-red-500 text-sm mt-1">{{ form.errors.contact_name }}</div>
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700">{{ trans.contact_phone }}</label>
-                                            <input v-model="form.contact_phone" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                            <input v-model="form.contact_phone" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-3 placeholder-gray-500 dark:placeholder-gray-400">
                                             <div v-if="form.errors.contact_phone" class="text-red-500 text-sm mt-1">{{ form.errors.contact_phone }}</div>
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700">{{ trans.contact_phone_2 }}</label>
-                                            <input v-model="form.contact_phone_2" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                            <input v-model="form.contact_phone_2" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-3 placeholder-gray-500 dark:placeholder-gray-400">
                                             <div v-if="form.errors.contact_phone_2" class="text-red-500 text-sm mt-1">{{ form.errors.contact_phone_2 }}</div>
                                         </div>
                                     </div>
