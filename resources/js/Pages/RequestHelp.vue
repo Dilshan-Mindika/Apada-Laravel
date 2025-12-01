@@ -40,33 +40,33 @@ const submit = () => {
     <AppLayout>
         <div class="py-6 sm:py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                         <h2 class="text-2xl font-bold mb-6">{{ trans.request_help }}</h2>
 
                         <form @submit.prevent="submit">
                             <div class="grid grid-cols-1 gap-6">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">{{ trans.name }}</label>
-                                    <input v-model="form.name" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ trans.name }}</label>
+                                    <input v-model="form.name" type="text" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                                     <div v-if="form.errors.name" class="text-red-500 text-sm mt-1">{{ form.errors.name }}</div>
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">{{ trans.phone }}</label>
-                                    <input v-model="form.phone" type="text" placeholder="07xxxxxxxx" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ trans.phone }}</label>
+                                    <input v-model="form.phone" type="text" placeholder="07xxxxxxxx" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                                     <div v-if="form.errors.phone" class="text-red-500 text-sm mt-1">{{ form.errors.phone }}</div>
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">{{ trans.address }}</label>
-                                    <textarea v-model="form.address" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ trans.address }}</label>
+                                    <textarea v-model="form.address" rows="3" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
                                     <div v-if="form.errors.address" class="text-red-500 text-sm mt-1">{{ form.errors.address }}</div>
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">{{ trans.category }}</label>
-                                    <select v-model="form.category" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ trans.category }}</label>
+                                    <select v-model="form.category" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                                         <option value="Food">{{ trans.food }}</option>
                                         <option value="Water">{{ trans.water }}</option>
                                         <option value="Medicine">{{ trans.medicine }}</option>
@@ -79,21 +79,21 @@ const submit = () => {
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">{{ trans.remarks }}</label>
-                                    <textarea v-model="form.remarks" rows="2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ trans.remarks }}</label>
+                                    <textarea v-model="form.remarks" rows="2" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700">{{ trans.location }}</label>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ trans.location }}</label>
                                     <div class="flex items-center space-x-4 mt-1">
-                                        <button type="button" @click="getLocation" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                            <svg class="-ml-1 mr-2 h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <button type="button" @click="getLocation" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                            <svg class="-ml-1 mr-2 h-5 w-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                             </svg>
                                             Get Current Location
                                         </button>
-                                        <div v-if="form.lat" class="text-sm text-gray-600">
+                                        <div v-if="form.lat" class="text-sm text-gray-600 dark:text-gray-400">
                                             {{ form.lat.toFixed(6) }}, {{ form.lng.toFixed(6) }}
                                         </div>
                                     </div>

@@ -56,12 +56,12 @@ const complete = (id) => {
     <AppLayout>
         <div class="py-6 sm:py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                         <div class="flex flex-col md:flex-row justify-between mb-6 gap-4">
                             <h2 class="text-2xl font-bold">{{ trans.donor_portal }}</h2>
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <select v-model="category" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto">
+                                <select v-model="category" class="rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                                     <option value="All">{{ trans.all }}</option>
                                     <option value="Food">{{ trans.food }}</option>
                                     <option value="Water">{{ trans.water }}</option>
@@ -71,33 +71,33 @@ const complete = (id) => {
                                     <option value="Sanitary">{{ trans.sanitary }}</option>
                                     <option value="Other">{{ trans.other }}</option>
                                 </select>
-                                <input v-model="search" type="text" :placeholder="trans.search" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto">
+                                <input v-model="search" type="text" :placeholder="trans.search" class="rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                             </div>
                         </div>
 
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
-                                <thead class="bg-gray-50">
+                                <thead class="bg-gray-50 dark:bg-gray-700">
                                     <tr>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ trans.name }}</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ trans.category }}</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ trans.location }}</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{{ trans.name }}</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{{ trans.category }}</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{{ trans.location }}</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
+                                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                                     <tr v-for="req in requests.data" :key="req.id">
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm font-medium text-gray-900">{{ req.name }}</div>
-                                            <div class="text-sm text-gray-500">{{ req.phone }}</div>
+                                            <div class="text-sm font-medium text-gray-900 dark:text-white">{{ req.name }}</div>
+                                            <div class="text-sm text-gray-500 dark:text-gray-400">{{ req.phone }}</div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                                                 {{ trans[req.category.toLowerCase()] || req.category }}
                                             </span>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                                             <MapLink :lat="req.lat" :lng="req.lng" />
                                             <div class="text-xs mt-1">{{ req.address }}</div>
                                         </td>
@@ -105,9 +105,9 @@ const complete = (id) => {
                                             <StatusBadge :status="req.status" />
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <button v-if="req.status === 'pending'" @click="accept(req.id)" class="text-blue-600 hover:text-blue-900 mr-4">{{ trans.accept }}</button>
-                                            <button v-if="req.status === 'accepted'" @click="markDelivering(req.id)" class="text-orange-600 hover:text-orange-900 mr-4">{{ trans.mark_delivering }}</button>
-                                            <Link v-if="req.status === 'delivering'" :href="route('donor.complete', req.id)" class="text-green-600 hover:text-green-900">{{ trans.complete }}</Link>
+                                            <button v-if="req.status === 'pending'" @click="accept(req.id)" class="text-blue-600 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300 mr-4">{{ trans.accept }}</button>
+                                            <button v-if="req.status === 'accepted'" @click="markDelivering(req.id)" class="text-orange-600 dark:text-orange-400 hover:text-orange-900 dark:hover:text-orange-300 mr-4">{{ trans.mark_delivering }}</button>
+                                            <Link v-if="req.status === 'delivering'" :href="route('donor.complete', req.id)" class="text-green-600 dark:text-green-400 hover:text-green-900 dark:hover:text-green-300">{{ trans.complete }}</Link>
                                             <span v-if="['completed', 'verified'].includes(req.status)" class="text-green-600 font-medium flex items-center">
                                                 <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>

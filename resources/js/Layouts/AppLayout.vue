@@ -18,7 +18,7 @@ watch(flashSuccess, (newVal) => {
 </script>
 
 <template>
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
         <Navbar />
 
         <div v-if="showFlash" class="max-w-7xl mx-auto px-4 mt-4">
