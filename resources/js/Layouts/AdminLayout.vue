@@ -25,7 +25,10 @@ watch(flashSuccess, (newVal) => {
                             Admin Dashboard
                         </Link>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center space-x-4">
+                        <Link :href="route('admin.profile.edit')" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                            Profile
+                        </Link>
                         <Link :href="route('admin.logout')" method="post" as="button" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                             Logout
                         </Link>

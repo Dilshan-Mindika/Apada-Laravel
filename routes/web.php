@@ -31,6 +31,7 @@ Route::post('/my-requests/{id}/verify', [MyRequestController::class, 'verify'])-
 Route::post('/my-requests/{id}/not-received', [MyRequestController::class, 'reportNotReceived'])->name('my-requests.not-received');
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminProfileController;
 
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.post');
@@ -42,6 +43,9 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/admin/requests/{id}', [AdminController::class, 'destroyRequest'])->name('admin.requests.destroy');
     Route::put('/admin/missing-people/{id}', [AdminController::class, 'updateMissingPerson'])->name('admin.missing.update');
     Route::delete('/admin/missing-people/{id}', [AdminController::class, 'destroyMissingPerson'])->name('admin.missing.destroy');
+
+    Route::get('/admin/profile', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
+    Route::patch('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 });
 
 Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
