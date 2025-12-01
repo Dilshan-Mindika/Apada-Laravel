@@ -1,5 +1,5 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
+import AdminLayout from '@/Layouts/AdminLayout.vue';
 import StatusBadge from '@/Components/StatusBadge.vue';
 import { Link, router, useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
@@ -64,7 +64,7 @@ const deletePerson = (id) => {
 </script>
 
 <template>
-    <AppLayout>
+    <AdminLayout>
         <div class="py-6 sm:py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 
@@ -300,5 +300,5 @@ const deletePerson = (id) => {
 
             </div>
         </div>
-    </AppLayout>
+    </AdminLayout>
 </template>

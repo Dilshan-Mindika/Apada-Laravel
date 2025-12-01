@@ -30,10 +30,18 @@ Route::get('/my-requests/search', [MyRequestController::class, 'search'])->name(
 Route::post('/my-requests/{id}/verify', [MyRequestController::class, 'verify'])->name('my-requests.verify');
 Route::post('/my-requests/{id}/not-received', [MyRequestController::class, 'reportNotReceived'])->name('my-requests.not-received');
 
-Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-Route::put('/admin/requests/{id}', [AdminController::class, 'updateRequest'])->name('admin.requests.update');
-Route::delete('/admin/requests/{id}', [AdminController::class, 'destroyRequest'])->name('admin.requests.destroy');
-Route::put('/admin/missing-people/{id}', [AdminController::class, 'updateMissingPerson'])->name('admin.missing.update');
-Route::delete('/admin/missing-people/{id}', [AdminController::class, 'destroyMissingPerson'])->name('admin.missing.destroy');
+use App\Http\Controllers\AdminAuthController;
+
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.post');
+Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::put('/admin/requests/{id}', [AdminController::class, 'updateRequest'])->name('admin.requests.update');
+    Route::delete('/admin/requests/{id}', [AdminController::class, 'destroyRequest'])->name('admin.requests.destroy');
+    Route::put('/admin/missing-people/{id}', [AdminController::class, 'updateMissingPerson'])->name('admin.missing.update');
+    Route::delete('/admin/missing-people/{id}', [AdminController::class, 'destroyMissingPerson'])->name('admin.missing.destroy');
+});
 
 Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
