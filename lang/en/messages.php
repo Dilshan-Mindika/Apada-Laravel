@@ -33,4 +33,13 @@ return [
     'i_want_to_help' => 'I Want to Help',
     'request_help_desc' => 'If you are affected by the flood and need assistance (food, water, medicine), click here.',
     'donor_portal_desc' => 'If you want to donate or help those in need, click here to view requests.',
+    'my_requests' => 'My Requests',
+    'enter_phone' => 'Enter Phone Number',
+    'check_status' => 'Check Status',
+    'verified' => 'Verified',
+    'confirm_received' => 'Confirm Received',
+    'mark_received_confirm' => 'Are you sure you want to mark this request as received?',
+    'not_received_yet' => 'Not Received Yet',
+    'received' => 'Received',
+    'no_my_requests' => 'No requests found for this phone number.',
 ];

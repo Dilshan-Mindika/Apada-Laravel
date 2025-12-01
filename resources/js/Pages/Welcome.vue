@@ -16,7 +16,7 @@ const trans = computed(() => page.props.translations);
                     <p class="text-xl text-gray-600">{{ trans.select_role }}</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <!-- Victim Card -->
                     <Link :href="route('requests.create')" class="group block bg-white overflow-hidden shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
                         <div class="p-8 text-center">
@@ -27,6 +27,19 @@ const trans = computed(() => page.props.translations);
                             </div>
                             <h2 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">{{ trans.i_need_help }}</h2>
                             <p class="text-gray-600">{{ trans.request_help_desc }}</p>
+                        </div>
+                    </Link>
+
+                    <!-- Check Status Card -->
+                    <Link :href="route('my-requests.index')" class="group block bg-white overflow-hidden shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="p-8 text-center">
+                            <div class="w-20 h-20 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">{{ trans.check_status }}</h2>
+                            <p class="text-gray-600">{{ trans.my_requests }}</p>
                         </div>
                     </Link>
 

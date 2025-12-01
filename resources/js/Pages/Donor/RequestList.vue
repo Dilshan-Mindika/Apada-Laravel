@@ -98,6 +98,12 @@ const complete = (id) => {
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             <button v-if="req.status === 'pending'" @click="accept(req.id)" class="text-blue-600 hover:text-blue-900 mr-4">{{ trans.accept }}</button>
                                             <button v-if="req.status === 'accepted'" @click="complete(req.id)" class="text-green-600 hover:text-green-900">{{ trans.complete }}</button>
+                                            <span v-if="req.status === 'verified'" class="text-purple-600 font-medium flex items-center">
+                                                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                                </svg>
+                                                {{ trans.verified }}
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr v-if="requests.data.length === 0">
