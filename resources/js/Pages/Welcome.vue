@@ -9,7 +9,7 @@ const trans = computed(() => page.props.translations);
 
 <template>
     <AppLayout>
-        <div class="py-12">
+        <div class="py-6 sm:py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h1 class="text-4xl font-bold text-gray-900 mb-4">{{ trans.welcome }}</h1>

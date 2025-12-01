@@ -17,7 +17,7 @@ const deleteRequest = (id) => {
 
 <template>
     <AppLayout>
-        <div class="py-12">
+        <div class="py-6 sm:py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <!-- Stats Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">

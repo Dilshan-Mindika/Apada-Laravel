@@ -48,21 +48,21 @@ const complete = (id) => {
 
 <template>
     <AppLayout>
-        <div class="py-12">
+        <div class="py-6 sm:py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <div class="flex justify-between mb-6">
+                        <div class="flex flex-col md:flex-row justify-between mb-6 gap-4">
                             <h2 class="text-2xl font-bold">{{ trans.donor_portal }}</h2>
-                            <div class="flex space-x-4">
-                                <select v-model="category" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <select v-model="category" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto">
                                     <option value="All">{{ trans.all }}</option>
                                     <option value="Food">{{ trans.food }}</option>
                                     <option value="Water">{{ trans.water }}</option>
                                     <option value="Medicine">{{ trans.medicine }}</option>
                                     <option value="Other">{{ trans.other }}</option>
                                 </select>
-                                <input v-model="search" type="text" :placeholder="trans.search" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <input v-model="search" type="text" :placeholder="trans.search" class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 w-full sm:w-auto">
                             </div>
                         </div>
 

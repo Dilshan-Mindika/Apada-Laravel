@@ -1,10 +1,12 @@
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
 const page = usePage();
 const locale = computed(() => page.props.locale);
 const trans = computed(() => page.props.translations);
+
+const showingNavigationDropdown = ref(false);
 
 const switchLang = (lang) => {
     window.location.href = route('lang.switch', lang);
@@ -13,7 +15,7 @@ const switchLang = (lang) => {
 
 <template>
     <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <Link :href="route('home')" class="flex-shrink-0 flex items-center font-bold text-xl text-blue-600">
@@ -28,7 +30,35 @@ const switchLang = (lang) => {
                         </Link>
                     </div>
                 </div>
-                <div class="flex items-center">
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    <select :value="locale" @change="switchLang($event.target.value)" class="form-select block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                        <option value="en">English</option>
+                        <option value="si">Sinhala</option>
+                        <option value="ta">Tamil</option>
+                    </select>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button @click="showingNavigationDropdown = !showingNavigationDropdown" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path :class="{'hidden': showingNavigationDropdown, 'inline-flex': !showingNavigationDropdown }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path :class="{'hidden': !showingNavigationDropdown, 'inline-flex': showingNavigationDropdown }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div :class="{'block': showingNavigationDropdown, 'hidden': !showingNavigationDropdown}" class="sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+                <Link :href="route('requests.create')" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium" :class="route().current('requests.create') ? 'border-blue-500 text-blue-700 bg-blue-50' : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300'">
+                    {{ trans.request_help }}
+                </Link>
+                <Link :href="route('donor.index')" class="block pl-3 pr-4 py-2 border-l-4 text-base font-medium" :class="route().current('donor.index') ? 'border-blue-500 text-blue-700 bg-blue-50' : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300'">
+                    {{ trans.donor_portal }}
+                </Link>
+            </div>
+            <div class="pt-4 pb-4 border-t border-gray-200">
+                <div class="px-4">
                     <select :value="locale" @change="switchLang($event.target.value)" class="form-select block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                         <option value="en">English</option>
                         <option value="si">Sinhala</option>
