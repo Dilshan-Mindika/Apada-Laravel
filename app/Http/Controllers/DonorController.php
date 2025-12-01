@@ -37,16 +37,31 @@ class DonorController extends Controller
     public function accept($id)
     {
         $request = HelpRequest::findOrFail($id);
-        $request->update(['status' => 'accepted']);
+        $request->update([
+            'status' => 'accepted',
+            'donor_name' => 'Donor', // In a real app, this would be auth()->user()->name
+        ]);
 
-        return redirect()->back()->with('success', 'success_accept');
+        return redirect()->back()->with('success', __('messages.success_accept'));
+    }
+
+    public function delivering($id)
+    {
+        $request = HelpRequest::findOrFail($id);
+        $request->update([
+            'status' => 'delivering',
+        ]);
+
+        return redirect()->back()->with('success', __('messages.success_delivering'));
     }
 
     public function complete($id)
     {
         $request = HelpRequest::findOrFail($id);
-        $request->update(['status' => 'completed']);
+        $request->update([
+            'status' => 'completed',
+        ]);
 
-        return redirect()->back()->with('success', 'success_complete');
+        return redirect()->back()->with('success', __('messages.success_complete'));
     }
 }

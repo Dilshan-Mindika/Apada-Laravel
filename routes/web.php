@@ -16,6 +16,7 @@ Route::post('/requests', [RequestController::class, 'store'])->name('requests.st
 
 Route::get('/donor/requests', [DonorController::class, 'index'])->name('donor.index');
 Route::post('/donor/requests/{id}/accept', [DonorController::class, 'accept'])->name('donor.accept');
+Route::post('/donor/requests/{id}/delivering', [DonorController::class, 'delivering'])->name('donor.delivering');
 Route::get('/donor/requests/{id}/complete', [DonorController::class, 'complete'])->name('donor.complete');
 
 Route::get('/my-requests', [MyRequestController::class, 'index'])->name('my-requests.index');

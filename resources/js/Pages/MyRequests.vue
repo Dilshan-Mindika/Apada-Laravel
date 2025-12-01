@@ -76,8 +76,8 @@ const reportNotReceived = (id) => {
                                     </div>
                                     
                                     <div class="flex-shrink-0 flex flex-col gap-2">
-                                        <!-- Mark as Received (Available for Pending, Accepted, Completed) -->
-                                        <button v-if="['pending', 'accepted', 'completed'].includes(req.status)" @click="verify(req.id)" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                                        <!-- Mark as Received (Available for Pending, Accepted, Delivering, Completed) -->
+                                        <button v-if="['pending', 'accepted', 'delivering', 'completed'].includes(req.status)" @click="verify(req.id)" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                                             {{ trans.mark_received }}
                                         </button>
 

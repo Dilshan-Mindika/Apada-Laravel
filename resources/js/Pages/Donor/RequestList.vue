@@ -39,6 +39,12 @@ const accept = (id) => {
     }
 };
 
+const markDelivering = (id) => {
+    if (confirm('Are you sure you want to mark this request as delivering?')) {
+        router.post(route('donor.delivering', id));
+    }
+};
+
 const complete = (id) => {
     if (confirm('Are you sure you want to mark this as completed?')) {
         router.post(route('donor.complete', id));
@@ -97,12 +103,13 @@ const complete = (id) => {
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             <button v-if="req.status === 'pending'" @click="accept(req.id)" class="text-blue-600 hover:text-blue-900 mr-4">{{ trans.accept }}</button>
-                                            <button v-if="req.status === 'accepted'" @click="complete(req.id)" class="text-green-600 hover:text-green-900">{{ trans.complete }}</button>
-                                            <span v-if="req.status === 'verified'" class="text-purple-600 font-medium flex items-center">
+                                            <button v-if="req.status === 'accepted'" @click="markDelivering(req.id)" class="text-orange-600 hover:text-orange-900 mr-4">{{ trans.mark_delivering }}</button>
+                                            <Link v-if="req.status === 'delivering'" :href="route('donor.complete', req.id)" class="text-green-600 hover:text-green-900">{{ trans.complete }}</Link>
+                                            <span v-if="['completed', 'verified'].includes(req.status)" class="text-green-600 font-medium flex items-center">
                                                 <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                {{ trans.verified }}
+                                                {{ req.status === 'verified' ? trans.verified : trans.completed }}
                                             </span>
                                         </td>
                                     </tr>

@@ -45,4 +45,7 @@ return [
     'mark_received' => 'Mark as Received',
     'mark_not_received' => 'Not Received',
     'mark_not_received_confirm' => 'Are you sure you want to report this as NOT received? This will revert the status.',
+    'delivering' => 'Delivering',
+    'mark_delivering' => 'Mark as Delivering',
+    'success_delivering' => 'Request marked as delivering!',
 ];
