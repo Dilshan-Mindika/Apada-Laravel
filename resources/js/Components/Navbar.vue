@@ -18,7 +18,7 @@ const switchLang = (lang) => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
-                    <Link :href="route('home')" class="flex-shrink-0 flex items-center font-bold text-xl text-blue-600">
+                    <Link :href="route('home')" class="flex-shrink-0 flex items-center font-bold text-xl text-blue-800 dark:text-blue-400">
                         Flood Relief
                     </Link>
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
