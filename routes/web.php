@@ -5,6 +5,7 @@ use App\Http\Controllers\DonorController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MyRequestController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\MissingPersonController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,6 +19,11 @@ Route::get('/donor/requests', [DonorController::class, 'index'])->name('donor.in
 Route::post('/donor/requests/{id}/accept', [DonorController::class, 'accept'])->name('donor.accept');
 Route::post('/donor/requests/{id}/delivering', [DonorController::class, 'delivering'])->name('donor.delivering');
 Route::get('/donor/requests/{id}/complete', [DonorController::class, 'complete'])->name('donor.complete');
+
+Route::get('/missing-people', [MissingPersonController::class, 'index'])->name('missing-people.index');
+Route::get('/missing-people/create', [MissingPersonController::class, 'create'])->name('missing-people.create');
+Route::post('/missing-people', [MissingPersonController::class, 'store'])->name('missing-people.store');
+Route::post('/missing-people/{id}/found', [MissingPersonController::class, 'markFound'])->name('missing-people.found');
 
 Route::get('/my-requests', [MyRequestController::class, 'index'])->name('my-requests.index');
 Route::get('/my-requests/search', [MyRequestController::class, 'search'])->name('my-requests.search');

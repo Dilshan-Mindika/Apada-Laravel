@@ -16,7 +16,7 @@ const trans = computed(() => page.props.translations);
                     <p class="text-xl text-gray-600">{{ trans.select_role }}</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
                     <!-- Victim Card -->
                     <Link :href="route('requests.create')" class="group block bg-white overflow-hidden shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
                         <div class="p-8 text-center">
@@ -53,6 +53,18 @@ const trans = computed(() => page.props.translations);
                             </div>
                             <h2 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{{ trans.i_want_to_help }}</h2>
                             <p class="text-gray-600">{{ trans.donor_portal_desc }}</p>
+                        </div>
+                    </Link>
+                    <!-- Missing People Card -->
+                    <Link :href="route('missing-people.index')" class="group block bg-white overflow-hidden shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="p-8 text-center">
+                            <div class="w-20 h-20 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors">{{ trans.find_missing_people }}</h2>
+                            <p class="text-gray-600">{{ trans.missing_desc }}</p>
                         </div>
                     </Link>
                 </div>
