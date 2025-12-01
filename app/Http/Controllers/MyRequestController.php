@@ -33,8 +33,8 @@ class MyRequestController extends Controller
     {
         $reliefRequest = ReliefRequest::findOrFail($id);
 
-        // Allow verification from pending, accepted, or completed states
-        if (in_array($reliefRequest->status, ['pending', 'accepted', 'completed'])) {
+        // Allow verification from pending, accepted, delivering, or completed states
+        if (in_array($reliefRequest->status, ['pending', 'accepted', 'delivering', 'completed'])) {
             $reliefRequest->update(['status' => 'verified']);
         }
 
