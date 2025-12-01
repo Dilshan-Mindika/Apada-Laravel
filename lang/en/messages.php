@@ -42,4 +42,7 @@ return [
     'not_received_yet' => 'Not Received Yet',
     'received' => 'Received',
     'no_my_requests' => 'No requests found for this phone number.',
+    'mark_received' => 'Mark as Received',
+    'mark_not_received' => 'Not Received',
+    'mark_not_received_confirm' => 'Are you sure you want to report this as NOT received? This will revert the status.',
 ];

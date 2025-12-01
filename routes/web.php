@@ -21,6 +21,7 @@ Route::get('/donor/requests/{id}/complete', [DonorController::class, 'complete']
 Route::get('/my-requests', [MyRequestController::class, 'index'])->name('my-requests.index');
 Route::get('/my-requests/search', [MyRequestController::class, 'search'])->name('my-requests.search');
 Route::post('/my-requests/{id}/verify', [MyRequestController::class, 'verify'])->name('my-requests.verify');
+Route::post('/my-requests/{id}/not-received', [MyRequestController::class, 'reportNotReceived'])->name('my-requests.not-received');
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::delete('/admin/requests/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');

@@ -28,6 +28,12 @@ const verify = (id) => {
         router.post(route('my-requests.verify', id));
     }
 };
+
+const reportNotReceived = (id) => {
+    if (confirm(trans.value.mark_not_received_confirm)) {
+        router.post(route('my-requests.not-received', id));
+    }
+};
 </script>
 
 <template>
@@ -69,18 +75,23 @@ const verify = (id) => {
                                         <p class="text-gray-800 mt-2">{{ req.remarks }}</p>
                                     </div>
                                     
-                                    <div class="flex-shrink-0">
-                                        <button v-if="req.status === 'completed'" @click="verify(req.id)" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                                            {{ trans.confirm_received }}
+                                    <div class="flex-shrink-0 flex flex-col gap-2">
+                                        <!-- Mark as Received (Available for Pending, Accepted, Completed) -->
+                                        <button v-if="['pending', 'accepted', 'completed'].includes(req.status)" @click="verify(req.id)" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                                            {{ trans.mark_received }}
                                         </button>
-                                        <span v-else-if="req.status === 'verified'" class="text-purple-600 font-medium flex items-center">
+
+                                        <!-- Mark as Not Received (Available only for Completed) -->
+                                        <button v-if="req.status === 'completed'" @click="reportNotReceived(req.id)" class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                            {{ trans.mark_not_received }}
+                                        </button>
+
+                                        <!-- Verified Status -->
+                                        <span v-if="req.status === 'verified'" class="text-purple-600 font-medium flex items-center">
                                             <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                             </svg>
                                             {{ trans.received }}
-                                        </span>
-                                        <span v-else class="text-gray-500 text-sm italic">
-                                            {{ trans.not_received_yet }}
                                         </span>
                                     </div>
                                 </div>

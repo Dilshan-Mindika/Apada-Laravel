@@ -33,8 +33,21 @@ class MyRequestController extends Controller
     {
         $reliefRequest = ReliefRequest::findOrFail($id);
 
-        if ($reliefRequest->status === 'completed') {
+        // Allow verification from pending, accepted, or completed states
+        if (in_array($reliefRequest->status, ['pending', 'accepted', 'completed'])) {
             $reliefRequest->update(['status' => 'verified']);
+        }
+
+        return redirect()->back();
+    }
+
+    public function reportNotReceived($id)
+    {
+        $reliefRequest = ReliefRequest::findOrFail($id);
+
+        // If completed but not received, revert to accepted
+        if ($reliefRequest->status === 'completed') {
+            $reliefRequest->update(['status' => 'accepted']);
         }
 
         return redirect()->back();
