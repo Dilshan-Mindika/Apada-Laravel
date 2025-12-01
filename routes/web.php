@@ -46,6 +46,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/admin/profile', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
     Route::patch('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
+
+    Route::resource('/admin/users', \App\Http\Controllers\AdminUserController::class)->names([
+        'index' => 'admin.users.index',
+        'create' => 'admin.users.create',
+        'store' => 'admin.users.store',
+        'edit' => 'admin.users.edit',
+        'update' => 'admin.users.update',
+        'destroy' => 'admin.users.destroy',
+    ]);
 });
 
 Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');

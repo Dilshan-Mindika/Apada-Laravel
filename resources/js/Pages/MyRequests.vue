@@ -40,16 +40,16 @@ const reportNotReceived = (id) => {
     <AppLayout>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
-                        <h2 class="text-2xl font-bold mb-6">{{ trans.my_requests }}</h2>
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                        <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">{{ trans.my_requests }}</h2>
 
                         <!-- Search Form -->
                         <form @submit.prevent="search" class="mb-8">
                             <div class="flex flex-col sm:flex-row gap-4">
                                 <div class="flex-grow">
                                     <label for="phone" class="sr-only">{{ trans.enter_phone }}</label>
-                                    <input v-model="form.phone" type="text" id="phone" :placeholder="trans.enter_phone" class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                    <input v-model="form.phone" type="text" id="phone" :placeholder="trans.enter_phone" class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                                     <div v-if="form.errors.phone" class="text-red-500 text-sm mt-1">{{ form.errors.phone }}</div>
                                 </div>
                                 <button type="submit" :disabled="form.processing" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -64,15 +64,15 @@ const reportNotReceived = (id) => {
                                 {{ trans.no_my_requests }}
                             </div>
 
-                            <div v-for="req in requests" :key="req.id" class="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <div v-for="req in requests" :key="req.id" class="border dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow bg-white dark:bg-gray-700">
                                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                                     <div>
                                         <div class="flex items-center gap-2 mb-1">
-                                            <span class="font-bold text-lg">{{ req.category }}</span>
+                                            <span class="font-bold text-lg text-gray-900 dark:text-white">{{ req.category }}</span>
                                             <StatusBadge :status="req.status" />
                                         </div>
-                                        <p class="text-gray-600 text-sm">{{ req.created_at }}</p>
-                                        <p class="text-gray-800 mt-2">{{ req.remarks }}</p>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm">{{ req.created_at }}</p>
+                                        <p class="text-gray-800 dark:text-gray-200 mt-2">{{ req.remarks }}</p>
                                     </div>
                                     
                                     <div class="flex-shrink-0 flex flex-col gap-2">
@@ -82,7 +82,7 @@ const reportNotReceived = (id) => {
                                         </button>
 
                                         <!-- Mark as Not Received (Available only for Completed) -->
-                                        <button v-if="req.status === 'completed'" @click="reportNotReceived(req.id)" class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                        <button v-if="req.status === 'completed'" @click="reportNotReceived(req.id)" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                             {{ trans.mark_not_received }}
                                         </button>
 
